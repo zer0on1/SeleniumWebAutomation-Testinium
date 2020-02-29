@@ -37,5 +37,6 @@ public class Testinium {
         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/section[1]/div[2]/ul[1]/li[" + random + "]/div[1]/div[1]/a[1]/img[1]")).click();
         driver.findElement(By.linkText("Sepete Ekle")).click();
         String price = driver.findElement(By.xpath("//div[@class='newPrice']")).getText().split("TL")[0];
+
     }
 }
