@@ -37,6 +37,14 @@ public class Testinium {
         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/section[1]/div[2]/ul[1]/li[" + random + "]/div[1]/div[1]/a[1]/img[1]")).click();
         driver.findElement(By.linkText("Sepete Ekle")).click();
         String price = driver.findElement(By.xpath("//div[@class='newPrice']")).getText().split("TL")[0];
+        driver.findElement(By.xpath("//a[@class='myBasket']")).click();
+        String basketPrice = driver.findElement(By.xpath("//div[@class='priceArea']")).getText().split("TL")[0];
+        Assert.assertEquals(price, basketPrice);
+        int beforeIncreasingCount = Integer.parseInt(driver.findElement(By.className("quantity")).getAttribute("value"));
+        driver.findElement(By.xpath("//span[@class='spinnerUp spinnerArrow']")).click();
+        int afterIncreasingCount = Integer.parseInt(driver.findElement(By.className("quantity")).getAttribute("value"));
+        Assert.assertEquals(beforeIncreasingCount + 1, afterIncreasingCount);
+
 
     }
 }
